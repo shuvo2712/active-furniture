@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* â”€â”€ RESET & BASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- RESET & BASE ---------------------------------- */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -26,7 +26,7 @@
       --logo-sub: var(--primary);
     }
 
-    /* ── LIGHT THEME ─────────────────────────────────── */
+    /* -- LIGHT THEME ---------------------------------- */
     html.light-theme {
       --bg: #F5F5F7;
       --bg-rgb: 245, 245, 247;
@@ -57,7 +57,7 @@
     h1, h2, h3, h4 { font-family: 'Archivo Black', sans-serif; line-height: 1; }
     a { text-decoration: none; color: inherit; }
 
-    /* â”€â”€ NAVBAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- NAVBAR ---------------------------------------- */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -111,7 +111,7 @@
 
     .menu-toggle { display: none; background: none; border: none; color: var(--steel); cursor: pointer; padding: 4px; }
 
-    /* ── FILTER TABS ────────────────────────────────── */
+    /* -- FILTER TABS ---------------------------------- */
     .filter-tabs {
       display: flex; justify-content: center; gap: 0.75rem;
       margin-bottom: 3rem; flex-wrap: wrap;
@@ -132,7 +132,7 @@
       box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
     }
 
-    /* ── THEME SWITCH ────────────────────────────────── */
+    /* -- THEME SWITCH ---------------------------------- */
     .theme-switch {
       background: none; border: none; cursor: pointer; padding: 0;
       display: flex; align-items: center;
@@ -160,7 +160,7 @@
     html.light-theme .sun-icon { opacity: 1; }
     html.light-theme .moon-icon { opacity: 0; }
 
-    /* ── CONTACT US NAV BUTTON ───────────────────────── */
+    /* -- CONTACT US NAV BUTTON ---------------------------------- */
     .nav-contact-btn {
       display: inline-flex; align-items: center; gap: 6px;
       background: transparent;
@@ -175,7 +175,7 @@
     }
     .nav-contact-btn:hover { background: rgba(201,168,76,0.1); }
 
-    /* â”€â”€ MOBILE MENU â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- MOBILE MENU ----------------------------------- */
     .mobile-menu {
       position: fixed;
       top: 88px; left: 0; right: 0;
@@ -193,7 +193,7 @@
     .mobile-link { font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--steel); transition: color 0.2s; }
     .mobile-link:hover { color: var(--primary); }
 
-    /* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- HERO ------------------------------------------ */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -218,7 +218,7 @@
         radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.07) 0%, transparent 50%),
         linear-gradient(135deg, #F0EDE8 0%, #EDE8E0 100%);
     }
-    /* ── HERO INNER SPLIT ──────────────────────────── */
+    /* -- HERO INNER SPLIT ---------------------------------- */
     .hero-inner {
       position: relative; z-index: 5; max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; width: 100%;
       display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center;
@@ -228,7 +228,7 @@
       position: relative; z-index: 2;
     }
 
-    /* ── HERO SLIDESHOW ────────────────────────────── */
+    /* -- HERO SLIDESHOW ---------------------------------- */
     .hero-media-side {
       position: relative;
       width: 100%;
@@ -316,7 +316,7 @@
     .scroll-indicator { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; }
     .scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent); animation: glowPulse 2s infinite; }
 
-    /* â”€â”€ BUTTONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- BUTTONS --------------------------------------- */
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--primary); color: #08080A;
@@ -359,18 +359,18 @@
       border-color: rgba(102, 80, 26, 0.65);
     }
 
-    /* â”€â”€ SCROLL REVEAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- SCROLL REVEAL --------------------------------- */
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
-    /* â”€â”€ SECTION HEADING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- SECTION HEADING ------------------------------- */
     .section-heading { text-align: center; margin-bottom: 4rem; }
     .section-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; display: block; margin-bottom: 1rem; color: var(--primary); animation: subtlePulse 4s infinite ease-in-out; }
     .section-heading h2 { font-size: clamp(2rem, 4vw, 3.5rem); color: var(--white); margin-bottom: 1rem; }
     .section-heading p { color: var(--steel); font-size: 1rem; max-width: 540px; margin: 0 auto; line-height: 1.7; }
     .section-heading .divider { width: 48px; height: 1px; background: rgba(201,168,76,0.4); margin: 1.25rem auto 0; }
 
-    /* â”€â”€ CATEGORIES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- CATEGORIES ------------------------------------ */
     .categories { padding: 7rem 2.5rem; }
     .categories-inner { max-width: 1280px; margin: 0 auto; }
     .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
@@ -415,7 +415,7 @@
     }
     .cat-card:hover .cat-link { opacity: 1; transform: translateY(0); }
 
-    /* â”€â”€ FEATURED PROJECTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- FEATURED PROJECTS ----------------------------- */
     .featured { padding: 7rem 2.5rem; }
     .featured-inner { max-width: 1280px; margin: 0 auto; }
     .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -454,7 +454,7 @@
     .proj-card.hidden-project { display: none; }
     .proj-card.hidden-project.show { display: block; animation: fadeSlideUp 0.6s ease both; }
 
-    /* ── PROJECT DETAILS MODAL ──────────────────────── */
+    /* -- PROJECT DETAILS MODAL ---------------------------------- */
     .project-modal {
       position: fixed; inset: 0; z-index: 1000;
       display: flex; align-items: center; justify-content: center;
@@ -585,7 +585,7 @@
       }
     }
 
-    /* â”€â”€ CTA SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- CTA SECTION ----------------------------------- */
     .cta-section { padding: 7rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
     .cta-glow {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -598,14 +598,14 @@
     .cta-section p { color: var(--steel); font-size: 1rem; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; position: relative; }
     .cta-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; position: relative; }
 
-    /* â”€â”€ STATS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- STATS ----------------------------------------- */
     .stats { border-top: 1px solid rgba(201,168,76,0.06); border-bottom: 1px solid rgba(201,168,76,0.06); padding: 4.5rem 2.5rem; }
     .stats-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
     .stat { text-align: center; }
     .stat-value { font-family: 'Archivo Black', sans-serif; font-size: 2.8rem; color: var(--primary); display: block; line-height: 1; }
     .stat-label { font-size: 0.63rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--steel); margin-top: 8px; display: block; }
 
-    /* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- FOOTER ---------------------------------------- */
     footer { background: var(--bg); border-top: 1px solid rgba(201,168,76,0.05); padding: 4.5rem 2.5rem 2rem; }
     .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 3rem; }
     .footer-logo-block { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
@@ -622,12 +622,12 @@
     .powered-by-widget { display: flex; align-items: center; gap: 6px; color: rgba(161,161,170,0.35); font-size: 0.7rem; }
     .pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(201,168,76,0.4); animation: glowPulse 3s infinite; }
 
-    /* â”€â”€ ANIMATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- ANIMATIONS ------------------------------------ */
     @keyframes glowPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
     @keyframes subtlePulse { 0%, 100% { opacity: 0.75; } 50% { opacity: 1; } }
     @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* â”€â”€ RESPONSIVE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    /* -- RESPONSIVE ------------------------------------ */
     @media (max-width: 1024px) {
       .cat-grid { grid-template-columns: repeat(2, 1fr); }
       .cat-card { height: 420px; }
@@ -693,7 +693,7 @@
       .hero-btns button, .cta-btns button { width: 100%; justify-content: center; }
     }
 
-    /* ── VIDEO GALLERY ──────────────────────────────── */
+    /* -- VIDEO GALLERY ---------------------------------- */
     .video-gallery {
       padding: 7rem 2.5rem;
       border-top: 1px solid rgba(201,168,76,0.06);
@@ -1201,16 +1201,6 @@
         <!-- Video 3 -->
         <div class="video-card">
           <div class="video-iframe-wrap">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1316244514895102&show_text=0&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-          </div>
-          <div class="video-info-block">
-            <h4 class="video-title">Handcrafted Bed Frame Assembly</h4>
-            <p class="video-desc">Constructing a solid upholstered luxury bed frame with integrated LED backlighting and premium textures.</p>
-          </div>
-        </div>
-        <!-- Video 4 -->
-        <div class="video-card">
-          <div class="video-iframe-wrap">
             <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1506159084078024&show_text=0&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
           </div>
           <div class="video-info-block">
@@ -1218,7 +1208,7 @@
             <p class="video-desc">A tour of a completed bedroom suite, showing the harmony between our custom bed, vanity dresser, and bedside cabinets.</p>
           </div>
         </div>
-        <!-- Video 5 -->
+        <!-- Video 4 -->
         <div class="video-card">
           <div class="video-iframe-wrap">
             <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2072248803329888&show_text=0&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
@@ -1228,17 +1218,17 @@
             <p class="video-desc">Constructing a premium dining area with modern aesthetics, timber details, and sophisticated finishes.</p>
           </div>
         </div>
-        <!-- Video 6 -->
+        <!-- Video 5 -->
         <div class="video-card">
           <div class="video-iframe-wrap">
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Freel%2F860915680410799&show_text=0&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F860915680410799&show_text=0&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
           </div>
           <div class="video-info-block">
             <h4 class="video-title">Vanity Dresser Detailed Walkthrough</h4>
             <p class="video-desc">Stepping close to examine the ribbed/fluted drawer fronts and gold accents on our bespoke vanity dressing table.</p>
           </div>
         </div>
-        <!-- Video 7 -->
+        <!-- Video 6 -->
         <div class="video-card">
           <div class="video-iframe-wrap">
             <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F995113906669079&show_text=0&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
