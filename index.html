@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Active Furniture &amp; Interior | Premium Interior Design &amp; Architecture</title>
+  <meta name="description" content="Active Furniture &amp; Interior offers premium interior design services in Dhaka, Bangladesh. From living rooms to home offices, we transform spaces into timeless experiences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* â”€â”€ RESET & BASE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #08080A;
+      --bg-rgb: 8, 8, 10;
+      --card: #0e0e12;
+      --border: #1f1f26;
+      --primary: #C9A84C;
+      --primary-dark: #a07a2a;
+      --steel: #A1A1AA;
+      --white: #E8E8EC;
+      --muted: #2a2a32;
+    }
+
+    /* ── LIGHT THEME ─────────────────────────────────── */
+    html.light-theme {
+      --bg: #F5F5F7;
+      --bg-rgb: 245, 245, 247;
+      --card: #FFFFFF;
+      --border: #E2E2E7;
+      --steel: #515159;
+      --white: #1D1D1F;
+      --muted: #E8E8ED;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+    h1, h2, h3, h4 { font-family: 'Archivo Black', sans-serif; line-height: 1; }
+    a { text-decoration: none; color: inherit; }
+
+    /* â”€â”€ NAVBAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 0 max(2.5rem, calc(50% - 640px + 2.5rem));
+      height: 88px;
+      transition: background 0.4s, border-color 0.4s;
+    }
+
+    nav.scrolled {
+      background: rgba(var(--bg-rgb), 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+    }
+    /* light mode: give navbar a subtle background even when not scrolled */
+    html.light-theme nav {
+      background: rgba(245, 245, 247, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    html.light-theme nav.scrolled {
+      background: rgba(245, 245, 247, 0.96);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    .nav-logo { display: flex; align-items: center; cursor: pointer; gap: 12px; }
+    .logo-img {
+      height: 46px; width: auto; object-fit: contain; display: block;
+      border-radius: 4px;
+      transition: transform 0.3s ease, height 0.3s ease;
+    }
+    .nav-logo:hover .logo-img {
+      transform: scale(1.03);
+    }
+    .logo-text-group {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
+    }
+    .nav-logo-name { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; letter-spacing: 0.15em; color: var(--white); line-height: 1; }
+    .nav-logo-sub { font-size: 0.52rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--primary); line-height: 1; }
+
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--steel); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+
+    .menu-toggle { display: none; background: none; border: none; color: var(--steel); cursor: pointer; padding: 4px; }
+
+    /* ── FILTER TABS ────────────────────────────────── */
+    .filter-tabs {
+      display: flex; justify-content: center; gap: 0.75rem;
+      margin-bottom: 3rem; flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: transparent; color: var(--steel);
+      border: 1px solid var(--border); border-radius: 4px;
+      padding: 0.6rem 1.5rem; font-size: 0.72rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      font-family: 'Inter', sans-serif; font-weight: 500;
+      cursor: pointer; transition: all 0.3s ease;
+    }
+    .filter-btn:hover {
+      border-color: rgba(201, 168, 76, 0.4); color: var(--white);
+    }
+    .filter-btn.active {
+      background: var(--primary); color: #08080A; border-color: var(--primary);
+      box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
+    }
+
+    /* ── THEME SWITCH ────────────────────────────────── */
+    .theme-switch {
+      background: none; border: none; cursor: pointer; padding: 0;
+      display: flex; align-items: center;
+    }
+    .switch-track {
+      width: 44px; height: 24px; border-radius: 12px;
+      background: var(--muted);
+      border: 1px solid var(--border);
+      position: relative;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .switch-knob {
+      position: absolute;
+      top: 2px; left: 2px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    html.light-theme .switch-knob { transform: translateX(20px); }
+    .sun-icon, .moon-icon { width: 10px; height: 10px; position: absolute; transition: opacity 0.3s; }
+    .sun-icon { opacity: 0; color: #08080A; }
+    .moon-icon { opacity: 1; color: #08080A; }
+    html.light-theme .sun-icon { opacity: 1; }
+    html.light-theme .moon-icon { opacity: 0; }
+
+    /* ── CONTACT US NAV BUTTON ───────────────────────── */
+    .nav-contact-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      padding: 0.45rem 1.1rem;
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      border-radius: 2px; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-contact-btn:hover { background: rgba(201,168,76,0.1); }
+
+    /* â”€â”€ MOBILE MENU â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .mobile-menu {
+      position: fixed;
+      top: 88px; left: 0; right: 0;
+      background: rgba(var(--bg-rgb), 0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+      z-index: 99;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .mobile-menu.open { max-height: 400px; }
+    .mobile-links { padding: 1.5rem 2.5rem 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .mobile-link { font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--steel); transition: color 0.2s; }
+    .mobile-link:hover { color: var(--primary); }
+
+    /* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 4rem 0;
+      overflow: hidden;
+    }
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-bg-gradient {
+      position: absolute; inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.05) 0%, transparent 50%),
+        linear-gradient(135deg, #090709 0%, #13100d 100%);
+      transition: background 0.4s;
+    }
+    html.light-theme .hero-bg-gradient {
+      background:
+        radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.07) 0%, transparent 50%),
+        linear-gradient(135deg, #F0EDE8 0%, #EDE8E0 100%);
+    }
+    /* ── HERO INNER SPLIT ──────────────────────────── */
+    .hero-inner {
+      position: relative; z-index: 5; max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; width: 100%;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center;
+    }
+    .hero-text-side {
+      display: flex; flex-direction: column; align-items: flex-start;
+      position: relative; z-index: 2;
+    }
+
+    /* ── HERO SLIDESHOW ────────────────────────────── */
+    .hero-media-side {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      background: #000;
+      animation: fadeSlideUp 0.8s 0.6s both;
+      z-index: 2;
+    }
+    .hero-media-side::after {
+      content: '';
+      position: absolute; inset: 0;
+      z-index: 3;
+      background: linear-gradient(to top, rgba(8,8,10,0.4) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    html.light-theme .hero-media-side::after {
+      background: linear-gradient(to top, rgba(245,245,247,0.2) 0%, transparent 100%);
+    }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 1.2s ease-in-out;
+      transform: scale(1.03);
+    }
+    .hero-slide.active {
+      opacity: 1;
+    }
+    .hero-slide.kenBurnsUp {
+      animation: kenBurnsUp 8s ease forwards;
+    }
+    .hero-slide.kenBurnsDown {
+      animation: kenBurnsDown 8s ease forwards;
+    }
+    .hero-slide.kenBurnsRight {
+      animation: kenBurnsRight 8s ease forwards;
+    }
+    .hero-slide.kenBurnsLeft {
+      animation: kenBurnsLeft 8s ease forwards;
+    }
+
+    @keyframes kenBurnsUp {
+      0% { transform: scale(1.04) translateY(0); }
+      100% { transform: scale(1.12) translateY(-2.5%); }
+    }
+    @keyframes kenBurnsDown {
+      0% { transform: scale(1.04) translateY(0); }
+      100% { transform: scale(1.12) translateY(2.5%); }
+    }
+    @keyframes kenBurnsRight {
+      0% { transform: scale(1.04) translateX(0); }
+      100% { transform: scale(1.12) translateX(2.5%); }
+    }
+    @keyframes kenBurnsLeft {
+      0% { transform: scale(1.04) translateX(0); }
+      100% { transform: scale(1.12) translateX(-2.5%); }
+    }
+    .hero-grid-lines { position: absolute; inset: 0; pointer-events: none; }
+    .hero-grid-line {
+      position: absolute;
+      background: linear-gradient(to right, transparent, rgba(201,168,76,0.1), transparent);
+      width: 100%; height: 1px;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+    .hero-grid-line:nth-child(1) { top: 28%; }
+    .hero-grid-line:nth-child(2) { top: 65%; animation-delay: 1.5s; }
+
+    .hero-inner { position: relative; z-index: 5; max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; width: 100%; }
+
+    .hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; animation: fadeSlideUp 0.8s 0.2s both; }
+    .hero-eyebrow .line { width: 32px; height: 1px; background: var(--primary); }
+    .hero-eyebrow span { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--primary); animation: subtlePulse 4s infinite ease-in-out; }
+
+    .hero h1 { font-size: clamp(2.8rem, 6.5vw, 5rem); line-height: 1.05; color: var(--white); margin-bottom: 1.5rem; animation: fadeSlideUp 0.8s 0.4s both; }
+    .hero h1 .accent { color: var(--primary); }
+    .hero-desc { color: var(--steel); font-size: 1rem; max-width: 440px; margin-bottom: 2.5rem; line-height: 1.7; animation: fadeSlideUp 0.8s 0.6s both; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 1rem; animation: fadeSlideUp 0.8s 0.8s both; }
+
+    .scroll-indicator { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent); animation: glowPulse 2s infinite; }
+
+    /* â”€â”€ BUTTONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--primary); color: #08080A;
+      padding: 1rem 2rem;
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      border-radius: 2px; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #b8963c; transform: translateY(-1px); }
+
+    .btn-outline-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--primary);
+      padding: 1rem 2rem;
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      border-radius: 2px; border: 1px solid rgba(201,168,76,0.35); cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-outline-primary:hover { background: rgba(201,168,76,0.08); transform: translateY(-1px); }
+
+    /* Light Theme Button Contrast Overrides */
+    html.light-theme .btn-outline-primary {
+      color: #66501A;
+      border-color: rgba(102, 80, 26, 0.45);
+    }
+    html.light-theme .btn-outline-primary:hover {
+      background: rgba(102, 80, 26, 0.08);
+      color: #4D3C12;
+      border-color: rgba(102, 80, 26, 0.65);
+    }
+    html.light-theme .nav-contact-btn {
+      color: #66501A;
+      border-color: rgba(102, 80, 26, 0.45);
+    }
+    html.light-theme .nav-contact-btn:hover {
+      background: rgba(102, 80, 26, 0.08);
+      color: #4D3C12;
+      border-color: rgba(102, 80, 26, 0.65);
+    }
+
+    /* â”€â”€ SCROLL REVEAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    /* â”€â”€ SECTION HEADING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .section-heading { text-align: center; margin-bottom: 4rem; }
+    .section-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; display: block; margin-bottom: 1rem; color: var(--primary); animation: subtlePulse 4s infinite ease-in-out; }
+    .section-heading h2 { font-size: clamp(2rem, 4vw, 3.5rem); color: var(--white); margin-bottom: 1rem; }
+    .section-heading p { color: var(--steel); font-size: 1rem; max-width: 540px; margin: 0 auto; line-height: 1.7; }
+    .section-heading .divider { width: 48px; height: 1px; background: rgba(201,168,76,0.4); margin: 1.25rem auto 0; }
+
+    /* â”€â”€ CATEGORIES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .categories { padding: 7rem 2.5rem; }
+    .categories-inner { max-width: 1280px; margin: 0 auto; }
+    .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+
+    .cat-card {
+      position: relative; height: 520px; border-radius: 6px; overflow: hidden; cursor: pointer;
+      border: 1px solid var(--border);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .cat-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-4px); }
+
+    .cat-ph { width: 100%; height: 100%; transition: transform 0.8s ease; }
+    .cat-ph-1 { background: linear-gradient(160deg, #1a1510 0%, #2a1f0a 40%, #0f0d0a 100%); }
+    .cat-ph-2 { background: linear-gradient(160deg, #0e1218 0%, #1a1f28 40%, #0a0c10 100%); }
+    .cat-ph-3 { background: linear-gradient(160deg, #120d0d 0%, #1e1212 40%, #0c0808 100%); }
+    .cat-ph-4 { background: linear-gradient(160deg, #0d1210 0%, #121a14 40%, #080c0a 100%); }
+    .cat-card:hover .cat-ph { transform: scale(1.06); }
+
+    .cat-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,8,10,0.95) 0%, rgba(8,8,10,0.45) 55%, transparent 100%);
+      transition: background 0.4s;
+    }
+    .cat-card:hover .cat-overlay { background: linear-gradient(to top, rgba(8,8,10,0.98) 0%, rgba(8,8,10,0.6) 55%, rgba(201,168,76,0.04) 100%); }
+
+    .cat-pattern {
+      position: absolute; inset: 0; opacity: 0.025;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(201,168,76,0.8) 40px, rgba(201,168,76,0.8) 41px),
+        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(201,168,76,0.8) 40px, rgba(201,168,76,0.8) 41px);
+    }
+
+    .cat-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.75rem; }
+    .cat-num { color: rgba(201,168,76,0.65); font-size: 0.58rem; letter-spacing: 0.35em; text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
+    .cat-content h3 { font-size: 1.35rem; color: #fff; margin-bottom: 0.5rem; line-height: 1.15; }
+    .cat-content p { color: rgba(255,255,255,0.6); font-size: 0.8rem; line-height: 1.6; }
+    .cat-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--primary); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+      margin-top: 1rem; opacity: 0; transform: translateY(8px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .cat-card:hover .cat-link { opacity: 1; transform: translateY(0); }
+
+    /* â”€â”€ FEATURED PROJECTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .featured { padding: 7rem 2.5rem; }
+    .featured-inner { max-width: 1280px; margin: 0 auto; }
+    .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+    .proj-card {
+      position: relative; border-radius: 6px; overflow: hidden;
+      background: var(--card); border: 1px solid var(--border);
+      transition: border-color 0.3s; cursor: pointer;
+    }
+    .proj-card:hover { border-color: rgba(201,168,76,0.28); }
+    .proj-img-wrap { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+
+    .proj-img-wrap img { width: 100%; height: 100%; transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); }
+    .proj-card:hover .proj-img-wrap img { transform: scale(1.06); }
+
+    .proj-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(8,8,10,0.92) 0%, rgba(8,8,10,0.2) 55%, transparent 100%);
+      transition: opacity 0.4s;
+    }
+    .proj-card:hover .proj-img-overlay { opacity: 0.85; }
+
+    .proj-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.25rem; }
+    .proj-cat { color: rgba(201,168,76,0.7); font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; display: block; margin-bottom: 0.25rem; }
+    .proj-name { color: #fff; font-size: 1.05rem; margin: 0.2rem 0; transition: color 0.2s; line-height: 1.25; }
+    .proj-card:hover .proj-name { color: var(--primary); }
+    .proj-desc { color: rgba(255,255,255,0.55); font-size: 0.75rem; margin-top: 0.25rem; }
+    .proj-cta {
+      display: flex; align-items: center; gap: 4px;
+      color: var(--primary); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+      margin-top: 0.75rem; opacity: 0; transform: translateY(8px);
+      transition: all 0.3s;
+    }
+    .proj-card:hover .proj-cta { opacity: 1; transform: translateY(0); }
+
+    .proj-card.hidden-project { display: none; }
+    .proj-card.hidden-project.show { display: block; animation: fadeSlideUp 0.6s ease both; }
+
+    /* ── PROJECT DETAILS MODAL ──────────────────────── */
+    .project-modal {
+      position: fixed; inset: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s ease;
+      padding: 1.5rem;
+      overflow-y: auto; /* Enable vertical scroll if content is taller than screen */
+    }
+    .project-modal.active {
+      opacity: 1; pointer-events: all;
+    }
+    .modal-overlay {
+      position: absolute; inset: 0;
+      background: rgba(8, 8, 10, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .modal-container {
+      position: relative; z-index: 1002;
+      width: 100%; max-width: 1000px;
+      margin: auto; /* Prevents overflow cropping when content height exceeds viewport */
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      transform: scale(0.92);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .project-modal.active .modal-container {
+      transform: scale(1);
+    }
+    .modal-close-btn {
+      position: absolute; top: 1.25rem; right: 1.25rem; z-index: 1010;
+      background: rgba(8, 8, 10, 0.6); border: 1px solid var(--border);
+      color: var(--white); width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .modal-close-btn:hover {
+      background: var(--primary); color: #08080A; border-color: var(--primary);
+    }
+    .modal-content {
+      display: grid; grid-template-columns: 1.2fr 1fr; min-height: 520px;
+    }
+    .modal-media-side {
+      position: relative; background: #000; overflow: hidden; display: flex; align-items: center; justify-content: center;
+    }
+    .modal-media-side img {
+      width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/5;
+    }
+    .nav-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(8, 8, 10, 0.6); border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff; width: 44px; height: 44px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s; z-index: 1005;
+    }
+    .nav-arrow:hover {
+      background: var(--primary); color: #08080A; border-color: var(--primary);
+    }
+    .prev-arrow { left: 1rem; }
+    .next-arrow { right: 1rem; }
+    
+    .modal-info-side {
+      padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between;
+      border-left: 1px solid var(--border);
+    }
+    .modal-cat {
+      color: var(--primary); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; display: block; margin-bottom: 0.5rem;
+    }
+    .modal-name {
+      font-size: 1.75rem; color: var(--white); margin-bottom: 1rem; line-height: 1.2; font-family: 'Archivo Black', sans-serif;
+    }
+    .modal-desc {
+      color: var(--steel); font-size: 0.88rem; line-height: 1.65; margin-bottom: 2rem;
+    }
+    .modal-specs {
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0; margin-bottom: 2rem; display: grid; gap: 0.85rem;
+    }
+    .spec-item {
+      display: flex; justify-content: space-between; font-size: 0.8rem;
+    }
+    .spec-label {
+      color: var(--steel); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.72rem;
+    }
+    .spec-value {
+      color: var(--white); font-weight: 500; text-align: right; max-width: 60%;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Light Theme Adjustments for Modal */
+    html.light-theme .modal-close-btn {
+      background: rgba(245, 245, 247, 0.8); color: var(--white);
+    }
+    html.light-theme .nav-arrow {
+      background: rgba(245, 245, 247, 0.8); color: var(--white);
+    }
+    html.light-theme .nav-arrow:hover, html.light-theme .modal-close-btn:hover {
+      background: var(--primary); color: #08080A;
+    }
+
+    /* Mobile Responsive for Modal */
+    @media (max-width: 768px) {
+      .project-modal {
+        padding: 0.75rem;
+      }
+      .modal-container {
+        max-height: 90vh; overflow-y: auto;
+      }
+      .modal-content {
+        grid-template-columns: 1fr;
+      }
+      .modal-media-side img {
+        aspect-ratio: 16/10;
+      }
+      .modal-info-side {
+        padding: 1.75rem; border-left: none; border-top: 1px solid var(--border);
+      }
+      .modal-name { font-size: 1.4rem; }
+      .modal-desc { margin-bottom: 1.5rem; }
+      .modal-specs { padding: 1rem 0; margin-bottom: 1.5rem; }
+      .modal-close-btn {
+        top: 0.75rem; right: 0.75rem;
+      }
+    }
+
+    /* â”€â”€ CTA SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .cta-section { padding: 7rem 2.5rem; text-align: center; position: relative; overflow: hidden; }
+    .cta-glow {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section .section-eyebrow { margin-bottom: 1rem; }
+    .cta-section h2 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--white); margin-bottom: 1rem; position: relative; }
+    .cta-section p { color: var(--steel); font-size: 1rem; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; position: relative; }
+    .cta-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; position: relative; }
+
+    /* â”€â”€ STATS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    .stats { border-top: 1px solid rgba(201,168,76,0.06); border-bottom: 1px solid rgba(201,168,76,0.06); padding: 4.5rem 2.5rem; }
+    .stats-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .stat { text-align: center; }
+    .stat-value { font-family: 'Archivo Black', sans-serif; font-size: 2.8rem; color: var(--primary); display: block; line-height: 1; }
+    .stat-label { font-size: 0.63rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--steel); margin-top: 8px; display: block; }
+
+    /* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    footer { background: var(--bg); border-top: 1px solid rgba(201,168,76,0.05); padding: 4.5rem 2.5rem 2rem; }
+    .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-logo-block { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+    .footer-logo-name { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; letter-spacing: 0.15em; color: var(--white); line-height: 1; }
+    .footer-logo-sub { font-size: 0.52rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--primary); display: block; line-height: 1; }
+    .footer-brand p { color: var(--steel); font-size: 0.85rem; line-height: 1.65; margin-top: 0.75rem; }
+    .footer-col h4 { color: var(--white); font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; margin-bottom: 1.25rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+    .footer-col a { display: block; color: var(--steel); font-size: 0.85rem; margin-bottom: 0.75rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--primary); }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 8px; color: var(--steel); font-size: 0.85rem; margin-bottom: 0.75rem; line-height: 1.5; }
+    .footer-contact-item svg { color: rgba(201,168,76,0.55); flex-shrink: 0; margin-top: 2px; }
+    .footer-bottom { max-width: 1280px; margin: 3rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(201,168,76,0.05); display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { color: rgba(161,161,170,0.4); font-size: 0.75rem; }
+    .powered-by-widget { display: flex; align-items: center; gap: 6px; color: rgba(161,161,170,0.35); font-size: 0.7rem; }
+    .pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(201,168,76,0.4); animation: glowPulse 3s infinite; }
+
+    /* â”€â”€ ANIMATIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    @keyframes glowPulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+    @keyframes subtlePulse { 0%, 100% { opacity: 0.75; } 50% { opacity: 1; } }
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* â”€â”€ RESPONSIVE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    @media (max-width: 1024px) {
+      .cat-grid { grid-template-columns: repeat(2, 1fr); }
+      .cat-card { height: 420px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .logo-img { height: 36px; }
+      .nav-links { display: none; }
+      .nav-contact-btn { display: none; }
+      .menu-toggle { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; padding-top: 5rem; }
+      .hero-media-side { max-width: 400px; margin: 0 auto; }
+      .hero h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+      .cat-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .cat-card { height: 360px; }
+      .proj-grid { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 2rem; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+
+      /* Mobile Modal Overrides */
+      .modal-content {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .modal-media-side img {
+        aspect-ratio: 16/10;
+      }
+      .modal-info-side {
+        padding: 1.5rem;
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+      .modal-name {
+        font-size: 1.35rem;
+        margin-bottom: 0.75rem;
+      }
+      .modal-desc {
+        font-size: 0.82rem;
+        margin-bottom: 1.5rem;
+      }
+      .modal-specs {
+        padding: 1rem 0;
+        margin-bottom: 1.5rem;
+        gap: 0.65rem;
+      }
+      .spec-item {
+        font-size: 0.75rem;
+      }
+      .nav-arrow {
+        width: 36px; height: 36px;
+      }
+    }
+    @media (max-width: 480px) {
+      nav { padding: 0 1.5rem; }
+      .nav-logo-name { font-size: 0.95rem; }
+      .nav-logo-sub { font-size: 0.45rem; }
+      .categories, .featured, .cta-section, .stats { padding-left: 1.5rem; padding-right: 1.5rem; }
+      footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .cat-grid { grid-template-columns: 1fr; }
+      .cat-card { height: 300px; }
+      .hero-btns, .cta-btns { flex-direction: column; align-items: stretch; width: 100%; }
+      .hero-btns button, .cta-btns button { width: 100%; justify-content: center; }
+    }
+
+    /* ── VIDEO GALLERY ──────────────────────────────── */
+    .video-gallery {
+      padding: 7rem 2.5rem;
+      border-top: 1px solid rgba(201,168,76,0.06);
+    }
+    .video-gallery-inner {
+      max-width: 1280px; margin: 0 auto;
+    }
+    .video-grid {
+      display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;
+    }
+    .video-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 1rem; width: 100%; max-width: 320px;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .video-card:hover {
+      border-color: rgba(201, 168, 76, 0.28);
+      transform: translateY(-2px);
+    }
+    .video-iframe-wrap {
+      position: relative;
+      padding-bottom: 177.77%; /* 9:16 Portrait Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #000;
+    }
+    .video-iframe-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .video-info-block {
+      margin-top: 1.25rem;
+    }
+    .video-title {
+      font-size: 0.95rem; color: var(--white);
+      margin-bottom: 0.5rem; font-family: 'Inter', sans-serif; font-weight: 600;
+      line-height: 1.4;
+    }
+    .video-desc {
+      font-size: 0.78rem; color: var(--steel);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 768px) {
+      .video-gallery { padding: 5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo" id="nav-logo">
+      <img src="pictures/logo.jpeg" class="logo-img" alt="ACTIVE FURNITURE &amp; INTERIOR">
+      <div class="logo-text-group">
+        <span class="nav-logo-name">ACTIVE FURNITURE &amp; INTERIOR</span>
+        <span class="nav-logo-sub">Design Studio</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#projects">Projects</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <!-- Theme Toggle -->
+      <button class="theme-switch" id="themeSwitch" aria-label="Toggle theme" title="Toggle light/dark mode">
+        <div class="switch-track">
+          <div class="switch-knob">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="18.36" x2="5.64" y2="16.92"/><line x1="18.36" y1="4.22" x2="19.78" y2="5.64"/>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </div>
+        </div>
+      </button>
+      <!-- Contact Us Button -->
+      <button class="nav-contact-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Contact Us
+      </button>
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <svg id="menuIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-links">
+      <a href="#"           class="mobile-link" onclick="closeMobileMenu()">Home</a>
+      <a href="#categories" class="mobile-link" onclick="closeMobileMenu()">Categories</a>
+      <a href="#projects"   class="mobile-link" onclick="closeMobileMenu()">Projects</a>
+      <a href="#gallery"    class="mobile-link" onclick="closeMobileMenu()">Gallery</a>
+      <a href="#contact"    class="mobile-link" onclick="closeMobileMenu()">Contact</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="heroBg">
+      <div class="hero-bg-gradient"></div>
+    </div>
+    <div class="hero-grid-lines">
+      <div class="hero-grid-line"></div>
+      <div class="hero-grid-line"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-text-side">
+        <div class="hero-eyebrow">
+          <div class="line"></div>
+          <span>Premium Interior Design &middot; Dhaka, Bangladesh</span>
+        </div>
+        <h1>Elevate Your Space,<br /><span class="accent">Define</span><br />Your Style.</h1>
+        <p class="hero-desc">We craft spaces that inspire &mdash; blending timeless aesthetics with purposeful design to create interiors that feel truly yours.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Get a Free Consultation
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+          <button class="btn-outline-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+            View Our Projects
+          </button>
+        </div>
+      </div>
+      <div class="hero-media-side" id="heroMediaSide">
+        <!-- Slides will be inserted here dynamically -->
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories reveal" id="categories">
+    <div class="categories-inner">
+      <div class="section-heading">
+        <span class="section-eyebrow">Our Expertise</span>
+        <h2>Curated Categories</h2>
+        <p>Four pillars of design excellence &mdash; each space crafted with uncompromising attention to detail and aesthetic purpose.</p>
+        <div class="divider"></div>
+      </div>
+      <div class="cat-grid">
+
+        <div class="cat-card" data-category="living">
+          <img src="pictures/10.jpeg" class="cat-ph" alt="Living Room" style="object-fit:cover;">
+          <div class="cat-pattern"></div>
+          <div class="cat-overlay"></div>
+          <div class="cat-content">
+            <span class="cat-num">Category 01</span>
+            <h3>Living Room</h3>
+            <p>Where comfort meets sophisticated style. Spaces that are as functional as they are beautiful.</p>
+            <div class="cat-link">View Designs <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </div>
+        </div>
+
+        <div class="cat-card" data-category="bedroom">
+          <img src="pictures/9.jpeg" class="cat-ph" alt="Bedroom" style="object-fit:cover;">
+          <div class="cat-pattern"></div>
+          <div class="cat-overlay"></div>
+          <div class="cat-content">
+            <span class="cat-num">Category 02</span>
+            <h3>Bedroom</h3>
+            <p>Your personal retreat &mdash; designed for rest with carefully chosen textures and lighting.</p>
+            <div class="cat-link">View Designs <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </div>
+        </div>
+
+        <div class="cat-card" data-category="kitchen">
+          <img src="pictures/13.jpeg" class="cat-ph" alt="Kitchen & Dining" style="object-fit:cover;">
+          <div class="cat-pattern"></div>
+          <div class="cat-overlay"></div>
+          <div class="cat-content">
+            <span class="cat-num">Category 03</span>
+            <h3>Kitchen &amp; Dining</h3>
+            <p>Modern kitchens that blend practical elegance with the warmth of shared meals.</p>
+            <div class="cat-link">View Designs <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </div>
+        </div>
+
+        <div class="cat-card" data-category="office">
+          <img src="pictures/14.jpeg" class="cat-ph" alt="Home Office" style="object-fit:cover;">
+          <div class="cat-pattern"></div>
+          <div class="cat-overlay"></div>
+          <div class="cat-content">
+            <span class="cat-num">Category 04</span>
+            <h3>Home Office</h3>
+            <p>Productive workspaces designed to fuel focus, creativity, and professional excellence.</p>
+            <div class="cat-link">View Designs <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section class="featured reveal" id="projects">
+    <div class="featured-inner">
+      <div class="section-heading">
+        <span class="section-eyebrow">SELECTED WORKS</span>
+        <h2>Featured Projects</h2>
+        <p>A curated selection of our finest work &mdash; each project a testament to our passion for extraordinary design.</p>
+        <div class="divider"></div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="living">Living Room</button>
+        <button class="filter-btn" data-filter="bedroom">Bedroom</button>
+        <button class="filter-btn" data-filter="kitchen">Kitchen &amp; Dining</button>
+        <button class="filter-btn" data-filter="office">Home Office</button>
+      </div>
+
+      <div class="proj-grid">
+
+        <!-- Card 1: 8.jpeg -->
+        <div class="proj-card" data-index="0" data-category="living">
+          <div class="proj-img-wrap">
+            <img src="pictures/8.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="The Meridian Residence">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Living Room &middot; Gulshan, Dhaka</span>
+              <h3 class="proj-name">The Meridian Residence</h3>
+              <p class="proj-desc">A seamless blend of warm tones and modern geometry.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: 11.jpeg -->
+        <div class="proj-card" data-index="1" data-category="bedroom">
+          <div class="proj-img-wrap">
+            <img src="pictures/11.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Serene Suite">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Bedroom &middot; Banani, Dhaka</span>
+              <h3 class="proj-name">Serene Suite</h3>
+              <p class="proj-desc">Minimalist luxury crafted for rest and rejuvenation.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: 7.jpeg -->
+        <div class="proj-card" data-index="2" data-category="kitchen">
+          <div class="proj-img-wrap">
+            <img src="pictures/7.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Noir Kitchen Studio">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Kitchen &middot; Dhanmondi, Dhaka</span>
+              <h3 class="proj-name">Noir Kitchen Studio</h3>
+              <p class="proj-desc">Dark matte cabinetry meets brushed brass elegance.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: 1.jpeg -->
+        <div class="proj-card" data-index="3" data-category="kitchen">
+          <div class="proj-img-wrap">
+            <img src="pictures/1.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="The Emerald Oasis">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Dining Room &middot; Banani, Dhaka</span>
+              <h3 class="proj-name">The Emerald Oasis</h3>
+              <p class="proj-desc">A luxurious dining space with emerald accents and natural light.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: 2.jpeg -->
+        <div class="proj-card" data-index="4" data-category="living">
+          <div class="proj-img-wrap">
+            <img src="pictures/2.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Monochrome Lounge">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Living Room &middot; Gulshan, Dhaka</span>
+              <h3 class="proj-name">Monochrome Lounge</h3>
+              <p class="proj-desc">Modern contrast styling with sleek ambient light.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: 3.jpeg -->
+        <div class="proj-card" data-index="5" data-category="living">
+          <div class="proj-img-wrap">
+            <img src="pictures/3.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Nordic Comfort">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Living Room &middot; Dhanmondi, Dhaka</span>
+              <h3 class="proj-name">Nordic Comfort</h3>
+              <p class="proj-desc">Cozy Scandinavian lounge with clean wood accents.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7: 4.jpeg (Hidden) -->
+        <div class="proj-card hidden-project" data-index="6" data-category="office">
+          <div class="proj-img-wrap">
+            <img src="pictures/4.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="The Executive Suite">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Home Office &middot; Baridhara, Dhaka</span>
+              <h3 class="proj-name">The Executive Suite</h3>
+              <p class="proj-desc">Modern workspace with rich wood paneling.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8: 5.jpeg (Hidden) -->
+        <div class="proj-card hidden-project" data-index="7" data-category="bedroom">
+          <div class="proj-img-wrap">
+            <img src="pictures/5.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Chic Sanctuary">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Bedroom &middot; Uttara, Dhaka</span>
+              <h3 class="proj-name">Chic Sanctuary</h3>
+              <p class="proj-desc">Soft tones and custom fixtures for peaceful rest.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9: 6.jpeg (Hidden) -->
+        <div class="proj-card hidden-project" data-index="8" data-category="living">
+          <div class="proj-img-wrap">
+            <img src="pictures/6.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="The Obsidian Loft">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Lounge &middot; Gulshan, Dhaka</span>
+              <h3 class="proj-name">The Obsidian Loft</h3>
+              <p class="proj-desc">A high-ceiling premium lounge space with dark tones.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 10: 9.jpeg (Hidden) -->
+        <div class="proj-card hidden-project" data-index="9" data-category="bedroom">
+          <div class="proj-img-wrap">
+            <img src="pictures/9.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Serene Sanctuary">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Bedroom &middot; Banani, Dhaka</span>
+              <h3 class="proj-name">Serene Sanctuary</h3>
+              <p class="proj-desc">Minimalist room with beautifully textured back wall.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 11: 10.jpeg (Hidden) -->
+        <div class="proj-card hidden-project" data-index="10" data-category="living">
+          <div class="proj-img-wrap">
+            <img src="pictures/10.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Grand Vista Living">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Living Room &middot; Baridhara, Dhaka</span>
+              <h3 class="proj-name">Grand Vista Living</h3>
+              <p class="proj-desc">Open plan layout with expansive floor-to-ceiling windows.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 12: 12.jpeg (Hidden) -->
+        <div class="proj-card hidden-project" data-index="11" data-category="office">
+          <div class="proj-img-wrap">
+            <img src="pictures/12.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Bespoke Study">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Home Office &middot; Mirpur, Dhaka</span>
+              <h3 class="proj-name">Bespoke Study</h3>
+              <p class="proj-desc">Clever built-in shelves and space-optimizing layout.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 13: 13.jpeg (Hidden) -->
+        <div class="proj-card hidden-project" data-index="12" data-category="kitchen">
+          <div class="proj-img-wrap">
+            <img src="pictures/13.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Urban Culinary">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Kitchen &middot; Bashundhara, Dhaka</span>
+              <h3 class="proj-name">Urban Culinary</h3>
+              <p class="proj-desc">Large marble island with premium smart-appliance integration.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 14: 14.jpeg (Hidden) -->
+        <div class="proj-card hidden-project" data-index="13" data-category="office">
+          <div class="proj-img-wrap">
+            <img src="pictures/14.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="The Creative Den">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Home Office &middot; Gulshan, Dhaka</span>
+              <h3 class="proj-name">The Creative Den</h3>
+              <p class="proj-desc">Designed for modern ergonomics and creative workflow.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 15: 15.jpeg (Hidden) -->
+        <div class="proj-card hidden-project" data-index="14" data-category="living">
+          <div class="proj-img-wrap">
+            <img src="pictures/15.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Terracotta Lounge">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Lounge &middot; Wari, Dhaka</span>
+              <h3 class="proj-name">Terracotta Lounge</h3>
+              <p class="proj-desc">Charming reading space with custom brickwork accent.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 16: 16.jpeg (Hidden) -->
+        <div class="proj-card hidden-project" data-index="15" data-category="bedroom">
+          <div class="proj-img-wrap">
+            <img src="pictures/16.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Zen Bathroom">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Bathroom &middot; Banani, Dhaka</span>
+              <h3 class="proj-name">Zen Bathroom</h3>
+              <p class="proj-desc">Premium marble walls and freestanding tub for deep relaxation.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 17: 17.jpeg (Hidden) -->
+        <div class="proj-card hidden-project" data-index="16" data-category="living">
+          <div class="proj-img-wrap">
+            <img src="pictures/17.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Veranda Escape">
+            <div class="proj-img-overlay"></div>
+            <div class="proj-info">
+              <span class="proj-cat">Balcony &middot; Dhanmondi, Dhaka</span>
+              <h3 class="proj-name">Veranda Escape</h3>
+              <p class="proj-desc">Indoor-outdoor patio balcony styling with premium materials.</p>
+              <div class="proj-cta">View Project <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Show All Projects Button -->
+      <div style="text-align: center; margin-top: 3.5rem;">
+        <button id="toggleProjectsBtn" class="btn-outline-primary" style="padding: 1rem 2.5rem;">
+          Show All Projects
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO GALLERY -->
+  <section class="video-gallery reveal" id="gallery">
+    <div class="video-gallery-inner">
+      <div class="section-heading">
+        <span class="section-eyebrow">Visual Inspiration</span>
+        <h2>Video Gallery</h2>
+        <p>Take a virtual tour through our crafted spaces and see our design philosophy come to life in full motion.</p>
+        <div class="divider"></div>
+      </div>
+      <div class="video-grid">
+        <!-- Video 1 (Facebook Reel 1) -->
+        <div class="video-card">
+          <div class="video-iframe-wrap">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F2182469568991992&show_text=0&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+          </div>
+          <div class="video-info-block">
+            <h4 class="video-title">Elegant Modern Suite Walkthrough</h4>
+            <p class="video-desc">A short cinematic tour showcasing clean bedroom geometry, premium warm wood paneling, and floating lighting accents.</p>
+          </div>
+        </div>
+        <!-- Video 2 (Facebook Reel 2) -->
+        <div class="video-card">
+          <div class="video-iframe-wrap">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1900320390670267&show_text=0&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+          </div>
+          <div class="video-info-block">
+            <h4 class="video-title">Luxury Living Room Design Details</h4>
+            <p class="video-desc">Stepping close to examine the marble textures, custom gold metallic trims, and modern geometry that define this lounge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats reveal">
+    <div class="stats-inner">
+      <div class="stat"><span class="stat-value">200+</span><span class="stat-label">Projects Completed</span></div>
+      <div class="stat"><span class="stat-value">5+</span><span class="stat-label">Years Experience</span></div>
+      <div class="stat"><span class="stat-value">500+</span><span class="stat-label">Happy Clients</span></div>
+      <div class="stat"><span class="stat-value">50+</span><span class="stat-label">Design Experts</span></div>
+    </div>
+  </div>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section reveal" id="contact">
+    <div class="cta-glow"></div>
+    <span class="section-eyebrow">Ready to Transform Your Space?</span>
+    <h2>Let's Build<br />Something Beautiful</h2>
+    <p>Share your vision with us. We'll craft a personalized design plan tailored to your space, lifestyle, and budget.</p>
+    <div class="cta-btns">
+      <button class="btn-primary" style="padding:1rem 2.5rem;">
+        Get a Free Consultation
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </button>
+      <button class="btn-outline-primary" style="padding:1rem 2.5rem;">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+        View Our Portfolio
+      </button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-block">
+          <img src="pictures/logo.jpeg" class="logo-img" alt="ACTIVE FURNITURE &amp; INTERIOR">
+          <div class="logo-text-group">
+            <span class="footer-logo-name">ACTIVE FURNITURE &amp; INTERIOR</span>
+            <span class="footer-logo-sub">Design Studio</span>
+          </div>
+        </div>
+        <p>Premium interior design solutions for homeowners, architects, and developers who demand excellence in every detail.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="#">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#projects" class="footer-cat-link" data-category="living">Living Room Design</a>
+        <a href="#projects" class="footer-cat-link" data-category="bedroom">Bedroom Design</a>
+        <a href="#projects" class="footer-cat-link" data-category="kitchen">Kitchen &amp; Dining</a>
+        <a href="#projects" class="footer-cat-link" data-category="office">Home Office</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          info@mainterior.com
+        </div>
+        <div class="footer-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.71 3.49 2 2 0 0 1 3.67 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.81-.81a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +880 1XXX-XXXXXX
+        </div>
+        <div class="footer-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Dhaka, Bangladesh
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Active Furniture &amp; Interior. All rights reserved.</p>
+      <div class="powered-by-widget">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/></svg>
+        <span>Powered by Deepthink CodeArts</span>
+        <div class="pulse-dot"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PROJECT DETAILS MODAL -->
+  <div id="projectModal" class="project-modal" aria-hidden="true">
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-content">
+        <!-- Image Area -->
+        <div class="modal-media-side">
+          <img id="modalImg" src="" alt="Project Image">
+          <!-- Navigation Arrows inside Media Area -->
+          <button class="nav-arrow prev-arrow" id="modalPrevBtn" aria-label="Previous project">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="nav-arrow next-arrow" id="modalNextBtn" aria-label="Next project">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+        <!-- Details Area -->
+        <div class="modal-info-side">
+          <div>
+            <span id="modalCat" class="modal-cat">CATEGORY</span>
+            <h3 id="modalName" class="modal-name">Project Name</h3>
+            <p id="modalDesc" class="modal-desc">Detailed project description goes here.</p>
+            
+            <div class="modal-specs">
+              <div class="spec-item">
+                <span class="spec-label">Style</span>
+                <span id="modalSpecStyle" class="spec-value">-</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Area Size</span>
+                <span id="modalSpecArea" class="spec-value">-</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Year</span>
+                <span id="modalSpecYear" class="spec-value">-</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Materials</span>
+                <span id="modalSpecMaterials" class="spec-value">-</span>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer-cta">
+            <button id="modalInquireBtn" class="btn-primary" style="width: 100%; justify-content: center;">
+              Inquire About This Design
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Navbar scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Theme toggle
+    const html        = document.documentElement;
+    const themeSwitch = document.getElementById('themeSwitch');
+    // Load saved theme
+    if (localStorage.getItem('mi-theme') === 'light') html.classList.add('light-theme');
+
+    themeSwitch.addEventListener('click', () => {
+      const isLight = html.classList.toggle('light-theme');
+      localStorage.setItem('mi-theme', isLight ? 'light' : 'dark');
+    });
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon   = document.getElementById('menuIcon');
+    let menuOpen = false;
+
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      menuIcon.innerHTML = menuOpen
+        ? '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>'
+        : '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.classList.remove('open');
+      menuIcon.innerHTML = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Active nav link
+    const sections = ['hero','categories','projects','gallery','contact'];
+    const navLinks  = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let cur = 'hero';
+      sections.forEach(id => {
+        const s = document.getElementById(id);
+        if (s && window.scrollY >= s.offsetTop - 120) cur = id;
+      });
+      navLinks.forEach(lnk => {
+        lnk.classList.remove('active');
+        const h = lnk.getAttribute('href');
+        if (h === '#' + cur || (cur === 'hero' && h === '#')) lnk.classList.add('active');
+      });
+    });
+
+    // Projects database
+    const projectsData = [
+      {
+        image: 'pictures/8.jpeg',
+        category: 'Living Room · Gulshan, Dhaka',
+        catCode: 'living',
+        name: 'The Meridian Residence',
+        desc: 'A seamless blend of warm earth tones, low-slung seating, and custom modern geometry. Built to foster deep relaxation while exuding effortless grandeur.',
+        style: 'Modern Contemporary',
+        area: '2,400 sq ft',
+        year: '2025',
+        materials: 'American Oak, Italian Marble, Antique Brass Accents'
+      },
+      {
+        image: 'pictures/11.jpeg',
+        category: 'Bedroom · Banani, Dhaka',
+        catCode: 'bedroom',
+        name: 'Serene Suite',
+        desc: 'Minimalist luxury crafted for rest and rejuvenation. Features organic textures, custom upholstered frame, and layered warm backlight panels.',
+        style: 'Warm Minimalism',
+        area: '650 sq ft',
+        year: '2025',
+        materials: 'Oak Wood Paneling, Flaxen Linen, Integrated Ambient LED'
+      },
+      {
+        image: 'pictures/7.jpeg',
+        category: 'Kitchen · Dhanmondi, Dhaka',
+        catCode: 'kitchen',
+        name: 'Noir Kitchen Studio',
+        desc: 'Dark matte cabinetry meets brushed brass elegance. Designed for open functionality, blending premium German appliances into custom panels.',
+        style: 'Modern Industrial',
+        area: '380 sq ft',
+        year: '2024',
+        materials: 'Matte Black Acrylic, Calacatta Quartzite, Brushed Brass Hardware'
+      },
+      {
+        image: 'pictures/1.jpeg',
+        category: 'Dining Room · Banani, Dhaka',
+        catCode: 'kitchen',
+        name: 'The Emerald Oasis',
+        desc: 'A magnificent luxury dining setting styled with deep emerald velvet, custom golden details, and an imposing natural marble dining table.',
+        style: 'Luxury Transitional',
+        area: '450 sq ft',
+        year: '2025',
+        materials: 'Emerald Velvet, Crema Marfil Slab Table, Crystal Chandelier'
+      },
+      {
+        image: 'pictures/2.jpeg',
+        category: 'Living Room · Gulshan, Dhaka',
+        catCode: 'living',
+        name: 'Monochrome Lounge',
+        desc: 'Bold contrasting colors and sleek lines create a sophisticated urban living area. Hidden lighting highlights the pristine architectural features.',
+        style: 'Minimalist Modern',
+        area: '1,800 sq ft',
+        year: '2024',
+        materials: 'Polished Terrazzo Flooring, Matte Black Lacquer, Nappa Leather'
+      },
+      {
+        image: 'pictures/3.jpeg',
+        category: 'Living Room · Dhanmondi, Dhaka',
+        catCode: 'living',
+        name: 'Nordic Comfort',
+        desc: 'Cozy Scandinavian-Japandi fusion lounge space. Hand-selected organic fabrics and light tone wood elements provide natural warmth.',
+        style: 'Japandi / Scandinavian',
+        area: '1,200 sq ft',
+        year: '2024',
+        materials: 'Solid Birch Wood, Bouclé Weave, Premium Wool Rug'
+      },
+      {
+        image: 'pictures/4.jpeg',
+        category: 'Home Office · Baridhara, Dhaka',
+        catCode: 'office',
+        name: 'The Executive Suite',
+        desc: 'A stately private study designed to inspire high focus. Rich wood grain paneling matches hand-finished executive leather details.',
+        style: 'Corporate Luxury',
+        area: '320 sq ft',
+        year: '2025',
+        materials: 'Select Walnut Wood, Hand-stitched Cognac Leather, Bronze Trim'
+      },
+      {
+        image: 'pictures/5.jpeg',
+        category: 'Bedroom · Uttara, Dhaka',
+        catCode: 'bedroom',
+        name: 'Chic Sanctuary',
+        desc: 'Soft pastel hues, custom gold-accented bedside lamps, and a custom quilted bed frame create an inviting and relaxing personal sanctuary.',
+        style: 'Modern Transitional',
+        area: '520 sq ft',
+        year: '2025',
+        materials: 'Upholstered Velvet Bed, Brushed Brass Sconces, Natural Ash Flooring'
+      },
+      {
+        image: 'pictures/6.jpeg',
+        category: 'Lounge · Gulshan, Dhaka',
+        catCode: 'living',
+        name: 'The Obsidian Loft',
+        desc: 'A grand high-ceiling penthouse lounge featuring double-height glass panels, deep charcoal walls, and luxurious minimalist sofas.',
+        style: 'Industrial Loft Style',
+        area: '3,100 sq ft',
+        year: '2025',
+        materials: 'Powder-coated Steel, Smoked Oak Planks, Matte Charcoal Porcelain'
+      },
+      {
+        image: 'pictures/9.jpeg',
+        category: 'Bedroom · Banani, Dhaka',
+        catCode: 'bedroom',
+        name: 'Serene Sanctuary',
+        desc: 'Calm Zen-like bedroom space highlighted by an authentic textured clay plaster accent wall and low-profile floating platform bed.',
+        style: 'Japandi',
+        area: '480 sq ft',
+        year: '2024',
+        materials: 'Clay Plaster Accent, Bamboo Elements, Ash Wood Platform Bed'
+      },
+      {
+        image: 'pictures/10.jpeg',
+        category: 'Living Room · Baridhara, Dhaka',
+        catCode: 'living',
+        name: 'Grand Vista Living',
+        desc: 'Expansive open plan living room designed to maximize natural light and panoramic views. Clean marble floors offer timeless grandeur.',
+        style: 'Ultra Luxury Modern',
+        area: '3,500 sq ft',
+        year: '2026',
+        materials: 'Statuario Marble, Extra-Clear Glass Panels, Low-profile Italian Sectional'
+      },
+      {
+        image: 'pictures/12.jpeg',
+        category: 'Home Office · Mirpur, Dhaka',
+        catCode: 'office',
+        name: 'Bespoke Study',
+        desc: 'Ingenious space-saving desk design combined with floor-to-ceiling customized shelves, ideal for study, work, and display.',
+        style: 'Compact Functionalism',
+        area: '220 sq ft',
+        year: '2024',
+        materials: 'High-density Fiberboard, Matte Laminate, Powder-coated Steel Frame'
+      },
+      {
+        image: 'pictures/13.jpeg',
+        category: 'Kitchen · Bashundhara, Dhaka',
+        catCode: 'kitchen',
+        name: 'Urban Culinary',
+        desc: 'Professional grade kitchen featuring a majestic marble breakfast island, custom ceiling hood, and integrated high-end kitchen tech.',
+        style: 'High-Tech Modern Kitchen',
+        area: '420 sq ft',
+        year: '2025',
+        materials: 'Brushed Stainless Steel, Carrara Slab Island, Touch-open Cabinets'
+      },
+      {
+        image: 'pictures/14.jpeg',
+        category: 'Home Office · Gulshan, Dhaka',
+        catCode: 'office',
+        name: 'The Creative Den',
+        desc: 'Designed for a graphic artist, incorporating acoustic soundproofing, ergonomic sit-stand desk, and personalized shelf layouts.',
+        style: 'Sleek Minimalist Office',
+        area: '280 sq ft',
+        year: '2025',
+        materials: 'Anodized Aluminum Desktop, Ash Veneer Desk, Acoustic Felt Panels'
+      },
+      {
+        image: 'pictures/15.jpeg',
+        category: 'Lounge · Wari, Dhaka',
+        catCode: 'living',
+        name: 'Terracotta Lounge',
+        desc: 'Warm and rustic reading room featuring an authentic exposed red-brick wall, hand-crafted teakwood seats, and indoor climbing plants.',
+        style: 'Rustic Transitional',
+        area: '600 sq ft',
+        year: '2024',
+        materials: 'Exposed Terracotta Bricks, Wrought Iron Frame, Solid Teakwood'
+      },
+      {
+        image: 'pictures/16.jpeg',
+        category: 'Bathroom · Banani, Dhaka',
+        catCode: 'bedroom',
+        name: 'Zen Bathroom',
+        desc: 'A gorgeous spa bathroom equipped with a large round stone soaking tub, light oak floor grates, and premium stone tiles.',
+        style: 'Spa Minimalist',
+        area: '240 sq ft',
+        year: '2025',
+        materials: 'Statuario Marble Tiles, Solid Teakwood Grates, Matte Black Fixtures'
+      },
+      {
+        image: 'pictures/17.jpeg',
+        category: 'Balcony · Dhanmondi, Dhaka',
+        catCode: 'living',
+        name: 'Veranda Escape',
+        desc: 'Cozy semi-outdoor deck featuring high-quality weather-resistant wood panels, hanging basket swing, and custom planters for privacy.',
+        style: 'Biophilic Outdoor',
+        area: '310 sq ft',
+        year: '2025',
+        materials: 'Composite Deck Wood, Synthetic Rattan Swing, Built-in Steel Planters'
+      }
+    ];
+
+    // Filter categories state
+    let activeCategory = 'all';
+    let projectsExpanded = false;
+    const toggleProjectsBtn = document.getElementById('toggleProjectsBtn');
+
+    function updateProjectsGrid() {
+      const cards = document.querySelectorAll('.proj-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const matchesFilter = (activeCategory === 'all' || cat === activeCategory);
+
+        if (matchesFilter) {
+          visibleCount++;
+          if (projectsExpanded || visibleCount <= 6) {
+            card.style.display = 'block';
+            // Subtle transition classes
+            setTimeout(() => card.classList.add('show'), 10);
+          } else {
+            card.style.display = 'none';
+            card.classList.remove('show');
+          }
+        } else {
+          card.style.display = 'none';
+          card.classList.remove('show');
+        }
+      });
+
+      // Show/Hide toggle button based on visible projects count
+      const toggleBtnContainer = toggleProjectsBtn.parentElement;
+      if (visibleCount > 6) {
+        toggleBtnContainer.style.display = 'block';
+        if (projectsExpanded) {
+          toggleProjectsBtn.innerHTML = `
+            Show Less
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+          `;
+        } else {
+          toggleProjectsBtn.innerHTML = `
+            Show All Projects
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px;">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          `;
+        }
+      } else {
+        toggleBtnContainer.style.display = 'none';
+      }
+    }
+
+    function setFilter(cat) {
+      activeCategory = cat;
+      projectsExpanded = false; // Reset expand on change
+
+      // Update active tabs styling
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-filter') === cat) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      updateProjectsGrid();
+    }
+
+    // Connect filter tab buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setFilter(btn.getAttribute('data-filter'));
+      });
+    });
+
+    // Connect upper categories cards and footer category links to filtering
+    document.querySelectorAll('.cat-card, .footer-cat-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const cat = link.getAttribute('data-category');
+        if (cat) {
+          e.preventDefault();
+          setFilter(cat);
+          document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Expand toggle button handler
+    toggleProjectsBtn.addEventListener('click', () => {
+      projectsExpanded = !projectsExpanded;
+      updateProjectsGrid();
+      if (!projectsExpanded) {
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // Modal elements
+    const projectModal = document.getElementById('projectModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalCat = document.getElementById('modalCat');
+    const modalName = document.getElementById('modalName');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalSpecStyle = document.getElementById('modalSpecStyle');
+    const modalSpecArea = document.getElementById('modalSpecArea');
+    const modalSpecYear = document.getElementById('modalSpecYear');
+    const modalSpecMaterials = document.getElementById('modalSpecMaterials');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalPrevBtn = document.getElementById('modalPrevBtn');
+    const modalNextBtn = document.getElementById('modalNextBtn');
+    const modalInquireBtn = document.getElementById('modalInquireBtn');
+
+    let currentProjectIndex = 0;
+
+    function openModal(index) {
+      currentProjectIndex = index;
+      const data = projectsData[index];
+      if (!data) return;
+
+      modalImg.src = data.image;
+      modalImg.alt = data.name;
+      modalCat.innerHTML = data.category;
+      modalName.innerHTML = data.name;
+      modalDesc.innerHTML = data.desc;
+      modalSpecStyle.innerHTML = data.style;
+      modalSpecArea.innerHTML = data.area;
+      modalSpecYear.innerHTML = data.year;
+      modalSpecMaterials.innerHTML = data.materials;
+
+      projectModal.classList.add('active');
+      projectModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+      projectModal.classList.remove('active');
+      projectModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    }
+
+    function showPrevProject() {
+      let prevIndex = currentProjectIndex;
+      const originalIndex = currentProjectIndex;
+      while (true) {
+        prevIndex = prevIndex - 1;
+        if (prevIndex < 0) prevIndex = projectsData.length - 1;
+        if (activeCategory === 'all' || projectsData[prevIndex].catCode === activeCategory || prevIndex === originalIndex) {
+          break;
+        }
+      }
+      openModal(prevIndex);
+    }
+
+    function showNextProject() {
+      let nextIndex = currentProjectIndex;
+      const originalIndex = currentProjectIndex;
+      while (true) {
+        nextIndex = nextIndex + 1;
+        if (nextIndex >= projectsData.length) nextIndex = 0;
+        if (activeCategory === 'all' || projectsData[nextIndex].catCode === activeCategory || nextIndex === originalIndex) {
+          break;
+        }
+      }
+      openModal(nextIndex);
+    }
+
+    // Click event on project cards
+    document.querySelectorAll('.proj-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const index = parseInt(card.getAttribute('data-index'), 10);
+        openModal(index);
+      });
+    });
+
+    // Close modal triggers
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+
+    // Prev / Next button events
+    modalPrevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showPrevProject();
+    });
+    modalNextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showNextProject();
+    });
+
+    // Keyboard controls (Esc to close, Left/Right for sliding)
+    document.addEventListener('keydown', (e) => {
+      if (!projectModal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowLeft') showPrevProject();
+      if (e.key === 'ArrowRight') showNextProject();
+    });
+
+    // Inquire CTA handler
+    modalInquireBtn.addEventListener('click', () => {
+      closeModal();
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Initialize Grid layout on load
+    updateProjectsGrid();
+
+    // Hero background image rotation logic
+    const heroMediaSide = document.getElementById('heroMediaSide');
+    // Extract unique project image paths from projectsData database
+    const heroImages = [...new Set(projectsData.map(p => p.image))];
+
+    // Create dual-slide crossfading layer elements
+    const slide1 = document.createElement('div');
+    slide1.className = 'hero-slide active kenBurnsUp';
+    slide1.style.backgroundImage = `url('${heroImages[0]}')`;
+
+    const slide2 = document.createElement('div');
+    slide2.className = 'hero-slide';
+
+    // Insert slides before the gradient overlay inside #heroMediaSide
+    heroMediaSide.insertBefore(slide1, heroMediaSide.firstChild);
+    heroMediaSide.insertBefore(slide2, heroMediaSide.firstChild);
+
+    let currentSlide = slide1;
+    let currentImageIndex = 0;
+
+    function rotateHeroBg() {
+      // Pick a random image different from current
+      let nextIndex = currentImageIndex;
+      while (nextIndex === currentImageIndex && heroImages.length > 1) {
+        nextIndex = Math.floor(Math.random() * heroImages.length);
+      }
+      currentImageIndex = nextIndex;
+      const nextImageUrl = heroImages[currentImageIndex];
+
+      const nextSlide = (currentSlide === slide1) ? slide2 : slide1;
+
+      // Assign the background image
+      nextSlide.style.backgroundImage = `url('${nextImageUrl}')`;
+
+      // Randomize Ken Burns transition direction for organic variety
+      const directions = ['kenBurnsUp', 'kenBurnsDown', 'kenBurnsRight', 'kenBurnsLeft'];
+      const randomDir = directions[Math.floor(Math.random() * directions.length)];
+
+      nextSlide.className = `hero-slide active ${randomDir}`;
+      currentSlide.classList.remove('active');
+
+      currentSlide = nextSlide;
+    }
+
+    // Rotate every 3 seconds
+    setInterval(rotateHeroBg, 3000);
+  </script>
+
+</body>
+</html>
