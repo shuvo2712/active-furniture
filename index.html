@@ -1407,13 +1407,46 @@
     // Projects database
     const projectsData = [
       {
+        image: 'pictures/8.jpeg',
+        category: 'Wardrobes & Vanities · Gulshan, Dhaka',
+        catCode: 'wardrobes',
+        name: 'Art Deco Beige Wardrobe',
+        desc: 'Large sliding door wardrobe, beige finish with geometric gold trim, central full-length mirrors, built-in ambient lighting. Matches vanity set.',
+        style: 'Extravagant Modern',
+        area: '350 sq ft',
+        year: '2025',
+        materials: 'American Oak, Italian Marble, Antique Brass Accents'
+      },
+      {
+        image: 'pictures/11.jpeg',
+        category: 'Wardrobes & Vanities · Banani, Dhaka',
+        catCode: 'wardrobes',
+        name: 'Fluted White & Gold Vanity',
+        desc: 'White vanity with ribbed/fluted drawer fronts, gold metallic accent panels, oval mirrors, circular drawer motifs. Includes matching stool and a side cabinet.',
+        style: 'Modern Luxury',
+        area: '480 sq ft',
+        year: '2025',
+        materials: 'Oak Wood Paneling, Flaxen Linen, Integrated Ambient LED'
+      },
+      {
+        image: 'pictures/7.jpeg',
+        category: 'Wardrobes & Vanities · Dhanmondi, Dhaka',
+        catCode: 'wardrobes',
+        name: 'Art Deco Beige Vanity Set',
+        desc: 'Beige panels with gold geometric trim, large three-panel mirror, multiple storage drawers, tall side cabinets with circular gold accents, matching stool.',
+        style: 'Extravagant Modern',
+        area: '350 sq ft',
+        year: '2025',
+        materials: 'Matte Black Acrylic, Calacatta Quartzite, Brushed Brass Hardware'
+      },
+      {
         image: 'pictures/1.jpeg',
         category: 'Dining Room · Banani, Dhaka',
         catCode: 'dining',
         name: 'Teal Velvet Marble Dining Set',
         desc: 'Rectangular white marble-look top, black legs, 8 teal velvet chairs with vertical tufted backs.',
         style: 'Modern Elegant',
-        area: '350 sq ft', // Keep placeholder stats
+        area: '480 sq ft',
         year: '2025',
         materials: 'Emerald Velvet, Crema Marfil Slab Table, Crystal Chandelier'
       },
@@ -1424,7 +1457,7 @@
         name: 'Charcoal Glamour Dining Set',
         desc: 'Rectangular white marble-look top, polished silver crossed-leg base, 4 charcoal grey velvet chairs with button tufting and silver nailhead trim.',
         style: 'Modern Glam',
-        area: '480 sq ft', // Keep placeholder stats
+        area: '350 sq ft',
         year: '2025',
         materials: 'Polished Terrazzo Flooring, Matte Black Lacquer, Nappa Leather'
       },
@@ -1435,7 +1468,7 @@
         name: 'Contemporary Navy Oval Dining Set',
         desc: 'Oval white marble-look top, polished silver pedestal base, 6 dark grey/navy velvet curved barrel chairs with silver metal sled legs.',
         style: 'Contemporary',
-        area: '350 sq ft', // Keep placeholder stats
+        area: '480 sq ft',
         year: '2025',
         materials: 'Solid Birch Wood, Bouclé Weave, Premium Wool Rug'
       },
@@ -1446,7 +1479,7 @@
         name: 'Gold & Cream Luxury Dining Set',
         desc: 'Rectangular white marble-look top, shiny gold crossed metal base, 6 cream velvet chairs with vertical tufting, gold legs, and gold ring pulls.',
         style: 'Glamorous Modern',
-        area: '480 sq ft', // Keep placeholder stats
+        area: '350 sq ft',
         year: '2025',
         materials: 'Select Walnut Wood, Hand-stitched Cognac Leather, Bronze Trim'
       },
@@ -1457,7 +1490,7 @@
         name: 'Slate Grey Transitional Dining Set',
         desc: 'Rectangular dark slate/grey top, black legs, 8 grey velvet dining chairs featuring button tufting, silver nailhead trim, and black legs.',
         style: 'Transitional',
-        area: '350 sq ft', // Keep placeholder stats
+        area: '480 sq ft',
         year: '2025',
         materials: 'Upholstered Velvet Bed, Brushed Brass Sconces, Natural Ash Flooring'
       },
@@ -1468,31 +1501,9 @@
         name: 'Gold & Black Marble Dining Set',
         desc: 'Rectangular black marble-look top with gold rim, intricate gold metal base, 6 light grey velvet chairs with gold sled base and gold ring pulls.',
         style: 'Glamorous Modern',
-        area: '480 sq ft', // Keep placeholder stats
+        area: '350 sq ft',
         year: '2025',
         materials: 'Powder-coated Steel, Smoked Oak Planks, Matte Charcoal Porcelain'
-      },
-      {
-        image: 'pictures/7.jpeg',
-        category: 'Wardrobes & Vanities · Dhanmondi, Dhaka',
-        catCode: 'wardrobes',
-        name: 'Art Deco Beige Vanity Set',
-        desc: 'Beige panels with gold geometric trim, large three-panel mirror, multiple storage drawers, tall side cabinets with circular gold accents, matching stool.',
-        style: 'Extravagant Modern',
-        area: '350 sq ft', // Keep placeholder stats
-        year: '2025',
-        materials: 'Matte Black Acrylic, Calacatta Quartzite, Brushed Brass Hardware'
-      },
-      {
-        image: 'pictures/8.jpeg',
-        category: 'Wardrobes & Vanities · Gulshan, Dhaka',
-        catCode: 'wardrobes',
-        name: 'Art Deco Beige Wardrobe',
-        desc: 'Large sliding door wardrobe, beige finish with geometric gold trim, central full-length mirrors, built-in ambient lighting. Matches vanity set.',
-        style: 'Extravagant Modern',
-        area: '480 sq ft', // Keep placeholder stats
-        year: '2025',
-        materials: 'American Oak, Italian Marble, Antique Brass Accents'
       },
       {
         image: 'pictures/9.jpeg',
@@ -1501,7 +1512,7 @@
         name: 'Art Deco Beige Bed Frame',
         desc: 'Luxury upholstered bed, beige tufted headboard with gold semi-circle accents and vertical side lighting. Footboard features three-piece seating with a central console drawer.',
         style: 'Extravagant Modern',
-        area: '350 sq ft', // Keep placeholder stats
+        area: '480 sq ft',
         year: '2025',
         materials: 'Clay Plaster Accent, Bamboo Elements, Ash Wood Platform Bed'
       },
@@ -1512,20 +1523,9 @@
         name: 'Complete Art Deco Bedroom Suite',
         desc: 'Comprehensive bedroom set including the beige tufted bed with lighted headboard, the geometric beige vanity set, and matching side tables.',
         style: 'Extravagant Modern',
-        area: '480 sq ft', // Keep placeholder stats
+        area: '350 sq ft',
         year: '2025',
         materials: 'Statuario Marble, Extra-Clear Glass Panels, Low-profile Italian Sectional'
-      },
-      {
-        image: 'pictures/11.jpeg',
-        category: 'Wardrobes & Vanities · Banani, Dhaka',
-        catCode: 'wardrobes',
-        name: 'Fluted White & Gold Vanity',
-        desc: 'White vanity with ribbed/fluted drawer fronts, gold metallic accent panels, oval mirrors, circular drawer motifs. Includes matching stool and a side cabinet.',
-        style: 'Modern Luxury',
-        area: '350 sq ft', // Keep placeholder stats
-        year: '2025',
-        materials: 'Oak Wood Paneling, Flaxen Linen, Integrated Ambient LED'
       },
       {
         image: 'pictures/12.jpeg',
@@ -1534,7 +1534,7 @@
         name: 'Fluted White & Gold Bedroom Set',
         desc: 'Large beige tufted bed with scalloped headboard design and footboard bench. Accompanied by the fluted white and gold vanity and side tables.',
         style: 'Modern Luxury',
-        area: '480 sq ft', // Keep placeholder stats
+        area: '480 sq ft',
         year: '2025',
         materials: 'High-density Fiberboard, Matte Laminate, Powder-coated Steel Frame'
       },
@@ -1545,7 +1545,7 @@
         name: 'Quilted White & Gold Vanity',
         desc: 'White vanity dresser with a tall rectangular side mirror. Quilted pattern on side panels, gold vertical trim, black handles, lower circular gold accents.',
         style: 'Modern Glam',
-        area: '350 sq ft', // Keep placeholder stats
+        area: '350 sq ft',
         year: '2025',
         materials: 'Brushed Stainless Steel, Carrara Slab Island, Touch-open Cabinets'
       },
@@ -1556,7 +1556,7 @@
         name: 'Quilted White & Gold Wardrobe',
         desc: 'Six-door white wardrobe featuring gold vertical stripes, diamond quilted side accents, oval mirror details on handles, and full-length central mirrors.',
         style: 'Modern Glam',
-        area: '480 sq ft', // Keep placeholder stats
+        area: '480 sq ft',
         year: '2025',
         materials: 'Anodized Aluminum Desktop, Ash Veneer Desk, Acoustic Felt Panels'
       },
@@ -1567,7 +1567,7 @@
         name: 'Cream & Dark Wood Modern Bedroom Set',
         desc: 'Cream/white upholstered bed with dark brown/black rectangular headboard accents and gold trim. Includes wide continuous footboard seating and a matching minimalist vanity.',
         style: 'Sleek Modern',
-        area: '350 sq ft', // Keep placeholder stats
+        area: '350 sq ft',
         year: '2025',
         materials: 'Exposed Terracotta Bricks, Wrought Iron Frame, Solid Teakwood'
       },
@@ -1578,7 +1578,7 @@
         name: 'Minimalist Matte Grey Vanity',
         desc: 'Asymmetrical matte grey vanity desk with a large round frameless mirror. Features a single floating drawer, a two-door side cabinet, black hardware, and a grey stool.',
         style: 'Contemporary Minimalist',
-        area: '480 sq ft', // Keep placeholder stats
+        area: '480 sq ft',
         year: '2025',
         materials: 'Statuario Marble Tiles, Solid Teakwood Grates, Matte Black Fixtures'
       },
@@ -1589,7 +1589,7 @@
         name: 'Minimalist Matte Grey Wardrobe',
         desc: 'Large six-door wardrobe in matte grey. Features prominent black rounded rectangular borders on doors, long black handles, and two central mirrored doors.',
         style: 'Contemporary Minimalist',
-        area: '350 sq ft', // Keep placeholder stats
+        area: '350 sq ft',
         year: '2025',
         materials: 'Composite Deck Wood, Synthetic Rattan Swing, Built-in Steel Planters'
       }
@@ -1806,10 +1806,13 @@
     // Extract unique project image paths from projectsData database
     const heroImages = [...new Set(projectsData.map(p => p.image))];
 
+    // Select a random first image index
+    let currentImageIndex = Math.floor(Math.random() * heroImages.length);
+
     // Create dual-slide crossfading layer elements
     const slide1 = document.createElement('div');
     slide1.className = 'hero-slide active kenBurnsUp';
-    slide1.style.backgroundImage = `url('${heroImages[0]}')`;
+    slide1.style.backgroundImage = `url('${heroImages[currentImageIndex]}')`;
 
     const slide2 = document.createElement('div');
     slide2.className = 'hero-slide';
@@ -1819,7 +1822,6 @@
     heroMediaSide.insertBefore(slide2, heroMediaSide.firstChild);
 
     let currentSlide = slide1;
-    let currentImageIndex = 0;
 
     function rotateHeroBg() {
       // Pick a random image different from current
